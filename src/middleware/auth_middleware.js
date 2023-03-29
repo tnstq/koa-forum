@@ -26,6 +26,9 @@ const verifyLogin = async (ctx,next) => {
         return ctx.app.emit('error',error,ctx)
     }
 
+    ctx.user = user
+
+    await next()
 }
 
 module.exports = {
