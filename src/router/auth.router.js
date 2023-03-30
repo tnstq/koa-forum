@@ -1,14 +1,16 @@
 // 登录/授权
+const { verify } = require('jsonwebtoken');
 const Router = require('koa-router');
 
 const authRouter = new Router();
 
 const {
-  login
+  login,success
 } = require('../controller/auth.controller');
 
-const {verifyLogin} = require('../middleware/auth_middleware')
+const {verifyLogin,verifyAuth} = require('../middleware/auth_middleware')
 
 authRouter.post('/login',verifyLogin,login);
+authRouter.get('/test',verifyAuth,success)
 
 module.exports = authRouter;
