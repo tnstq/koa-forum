@@ -1,5 +1,4 @@
 // 登录/授权
-const { verify } = require('jsonwebtoken');
 const Router = require('koa-router');
 
 const authRouter = new Router();
